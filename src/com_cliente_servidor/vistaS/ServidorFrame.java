@@ -24,7 +24,7 @@ import java.util.Vector;
 
 public class ServidorFrame extends javax.swing.JFrame implements VistaS{
     ControladorServidor controlador;
-    /**
+    /**jav
      * Creates new form ServidorFrame
      */
     public ServidorFrame() {
