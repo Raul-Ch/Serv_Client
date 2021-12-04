@@ -29,5 +29,7 @@ public interface VistaS {
     public String getMensajeAEnviar_double();
     public String getMensajeAEnviar_array();
     public String getMensajeAEnviar_string();
+    public String getMensajeAEnviar_alumno();
+    public String getMensajeAEnviar_Apellidoalumno();
     
 }

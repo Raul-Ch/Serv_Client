@@ -54,6 +54,8 @@ public class ControladorServidor implements ActionListener {
                 modelo.enviarMensaje(vista.getMensajeAEnviar_double());
                 modelo.enviarMensaje(vista.getMensajeAEnviar_array());
                 modelo.enviarMensaje(vista.getMensajeAEnviar_string());
+                modelo.enviarMensaje(vista.getMensajeAEnviar_alumno());
+                modelo.enviarMensaje(vista.getMensajeAEnviar_Apellidoalumno());
                 vista.textoencaja("Paquete enviado.");
                 break;
         }

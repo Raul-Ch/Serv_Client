@@ -6,6 +6,7 @@
 package com_cliente_servidor.vistaS;
 
 
+import com.mysql.cj.jdbc.ServerPreparedStatement;
 import com_cliente_servidor.controladorS.ControladorServidor;
 
 import com.mysql.cj.xdevapi.Statement;
@@ -73,12 +74,15 @@ public class ServidorFrame extends javax.swing.JFrame implements VistaS{
         Float_TxtField_S = new javax.swing.JTextField();
         Double_TxtField_S = new javax.swing.JTextField();
         Array_TxtField_S = new javax.swing.JTextField();
+        ApellidoAlumno_TxtField_S = new javax.swing.JTextField();
+        NombreAlumno_TxtField_S = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Mensajes_Servidor = new javax.swing.JTextArea();
         Cliente_Label = new javax.swing.JLabel();
         Paquetes = new javax.swing.JComboBox<>();
         Enviar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -209,6 +213,22 @@ public class ServidorFrame extends javax.swing.JFrame implements VistaS{
         });
         jPanel1.add(Array_TxtField_S, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 390, 170, 40));
 
+        ApellidoAlumno_TxtField_S.setBackground(new java.awt.Color(153, 255, 255));
+        ApellidoAlumno_TxtField_S.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ApellidoAlumno_TxtField_SActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ApellidoAlumno_TxtField_S, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 490, 180, 40));
+
+        NombreAlumno_TxtField_S.setBackground(new java.awt.Color(153, 255, 255));
+        NombreAlumno_TxtField_S.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NombreAlumno_TxtField_SActionPerformed(evt);
+            }
+        });
+        jPanel1.add(NombreAlumno_TxtField_S, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 490, 80, 40));
+
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -245,6 +265,10 @@ public class ServidorFrame extends javax.swing.JFrame implements VistaS{
             }
         });
         jPanel1.add(Enviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 490, 210, 50));
+
+        jLabel1.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
+        jLabel1.setText("ALUMNO");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 520, -1, 40));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com_images/FondoDif.png"))); // NOI18N
         Fondo.setMaximumSize(new java.awt.Dimension(910, 580));
@@ -289,6 +313,9 @@ public class ServidorFrame extends javax.swing.JFrame implements VistaS{
             Double_TxtField_S.setText(String.valueOf(rs1.getDouble("Tipo_Double")));
             Array_TxtField_S.setText(rs1.getString("Tipo_Array"));
             String_TxtField_S.setText(rs1.getString("Tipo_String"));
+            NombreAlumno_TxtField_S.setText(rs1.getString("Alumno_Nombre"));
+            ApellidoAlumno_TxtField_S.setText(rs1.getString("Alumno_Apellido"));
+            
           /*  if (con1 != null) {
                 Mensajes_Cliente.showMessageDialog(null, "Conectado correctamente a la base de datos");
             }*/
@@ -307,6 +334,14 @@ public class ServidorFrame extends javax.swing.JFrame implements VistaS{
     private void EnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EnviarActionPerformed
+
+    private void NombreAlumno_TxtField_SActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreAlumno_TxtField_SActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NombreAlumno_TxtField_SActionPerformed
+
+    private void ApellidoAlumno_TxtField_SActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApellidoAlumno_TxtField_SActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ApellidoAlumno_TxtField_SActionPerformed
 
     /**
      * @param args the command line arguments
@@ -346,6 +381,7 @@ public class ServidorFrame extends javax.swing.JFrame implements VistaS{
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ApellidoAlumno_TxtField_S;
     private javax.swing.JLabel Array_Label;
     private javax.swing.JTextField Array_TxtField_S;
     private javax.swing.JLabel Bool_Label;
@@ -366,9 +402,11 @@ public class ServidorFrame extends javax.swing.JFrame implements VistaS{
     private javax.swing.JLabel Long_Label;
     private javax.swing.JTextField Long_TxtField_S;
     private javax.swing.JTextArea Mensajes_Servidor;
+    private javax.swing.JTextField NombreAlumno_TxtField_S;
     private javax.swing.JComboBox<String> Paquetes;
     private javax.swing.JLabel String_Label;
     private javax.swing.JTextField String_TxtField_S;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -461,9 +499,19 @@ public class ServidorFrame extends javax.swing.JFrame implements VistaS{
        Mensajes_Servidor.append("_______________________________________\n"); 
        return String_TxtField_S.getText();
     }    
- 
 
-
+    @Override
+    public String getMensajeAEnviar_alumno() {
+       Mensajes_Servidor.append("Paquete del Alumno: "+(String)this.NombreAlumno_TxtField_S.getText()+(String)this.ApellidoAlumno_TxtField_S.getText()+"\n");
+       Mensajes_Servidor.append("_______________________________________\n"); 
+       return NombreAlumno_TxtField_S.getText();
+    }
+    
+    @Override
+    public String getMensajeAEnviar_Apellidoalumno(){
+        return ApellidoAlumno_TxtField_S.getText();
+    }
+    
 }
 
     

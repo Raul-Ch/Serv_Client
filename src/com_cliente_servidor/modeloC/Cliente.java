@@ -156,6 +156,28 @@ public class Cliente extends Thread{
         }
         return "";
     }
+    
+    public String recibirMensaje_alumno(){
+        try {
+            String mensaje_alumno = br.readLine();
+            return mensaje_alumno;
+        } catch (IOException ex) {
+            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "";
+    }
+    
+    public String recibirMensaje_apellido(){
+        try {
+            String mensaje_apellido = br.readLine();
+            return mensaje_apellido;
+        } catch (IOException ex) {
+            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "";
+    }
+    
+    
     public void run(){
         boolean bucle;
             /*String mensaje2 = "-> Cliente Conectado";
@@ -195,6 +217,13 @@ public class Cliente extends Thread{
             controlador.textoencaja2("Recibido el array: " + mensaje_array);
             String mensaje_string = recibirMensaje_string();
             controlador.textoencaja2("Recibido el string: " + mensaje_string);
+            String mensaje_alumno = recibirMensaje_alumno();
+            controlador.textoencaja2("_______________________________________\n");
+            controlador.textoencaja("Recibido el Nombre: " + mensaje_alumno);
+            controlador.textoencaja2("Recibido el Nombre: " + mensaje_alumno);
+            String mensaje_apellido = recibirMensaje_apellido();
+            controlador.textoencaja("Recibido el Apellido: " + mensaje_apellido);
+            controlador.textoencaja2("Recibido el Apellido: " + mensaje_apellido);
             controlador.textoencaja2("_______________________________________\n");
         
         }
