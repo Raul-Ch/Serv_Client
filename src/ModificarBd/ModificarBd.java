@@ -138,7 +138,7 @@ public class ModificarBd extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-            
+            //Alumno modificar
         try {
             java.sql.Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/comunicacion_servidor","root","");
             java.sql.Statement sent2 = con2.createStatement();
